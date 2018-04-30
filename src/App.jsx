@@ -15,11 +15,11 @@ const App = () => (
         <li><Link to="/login">Login</Link></li>
       </ul>
 
-      <hr/>
+      <hr />
 
-      <Route exact path="/" component={Home}/>
-      <Route path="/login" component={Login}/>
+      <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
     </div>
   </Router>
-)
-export default App
+);
+export default App;
