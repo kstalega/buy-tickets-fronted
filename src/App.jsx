@@ -8,16 +8,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Home from './scenes/Home';
 import Login from './scenes/Login';
 import MainMenu from './components/MainMenu/MainMenu';
+import Grid from 'material-ui/Grid';
 
 const App = () => (
   <Router>
     <MuiThemeProvider>
       <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
-
         <MainMenu />
 
         <hr />
