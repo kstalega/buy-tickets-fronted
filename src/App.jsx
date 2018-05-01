@@ -7,6 +7,7 @@ import {
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Home from './scenes/Home';
 import Login from './scenes/Login';
+import MainMenu from './components/MainMenu/MainMenu';
 
 const App = () => (
   <Router>
@@ -16,6 +17,8 @@ const App = () => (
           <li><Link to="/">Home</Link></li>
           <li><Link to="/login">Login</Link></li>
         </ul>
+
+        <MainMenu />
 
         <hr />
 
