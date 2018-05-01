@@ -8,10 +8,10 @@ const Login = () =>
       <Paper>
         <h1>Login</h1>
         <div>
-          <TextField floatingLabelText="Login" />
+          <TextField label="Login" />
         </div>
         <div>
-          <TextField floatingLabelText="Password" type="password" />
+          <TextField label="Password" type="password" />
         </div>
       </Paper>
     </div>
