@@ -1,4 +1,5 @@
 import React from 'react';
+import jQuery from 'jquery';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
@@ -8,13 +9,12 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginForm: {
-        login: '',
-        password: '',
-      },
+      login: '',
+      password: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.tryToLogin = this.tryToLogin.bind(this)
   }
 
   handleInputChange(event) {
@@ -22,6 +22,22 @@ class Login extends React.Component {
 
     this.setState({
       [name]: value,
+    });
+  }
+
+  tryToLogin() {
+    jQuery.ajax({
+      type: 'POST',
+      url: `http://usersrestmicroservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
+      data: {
+        login: 'test',
+      },
+      success: () => {
+        this.setState = {
+          login: '',
+          password: '',
+        };
+      }
     });
   }
 
@@ -35,6 +51,7 @@ class Login extends React.Component {
               name="login"
               label="Login"
               onChange={this.handleInputChange}
+              value={this.state.login}
             />
           </div>
           <div className="formEntity">
@@ -43,10 +60,15 @@ class Login extends React.Component {
               label="Password"
               type="password"
               onChange={this.handleInputChange}
+              value={this.state.password}
             />
           </div>
           <div className="formEntity">
-            <Button variant="raised" color="primary">
+            <Button 
+              variant="raised" 
+              color="primary"
+              onClick={this.tryToLogin}
+            >
               Sign in
             </Button>
           </div>
