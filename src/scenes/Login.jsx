@@ -4,24 +4,57 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import './Login.css';
 
-const Login = () =>
-  (
-    <div className="container">
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginForm: {
+        login: '',
+        password: '',
+      },
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const { value, name } = event.target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  render() {
+    return (
       <Paper>
-        <h1>Login</h1>
-        <div className="formEntity">
-          <TextField label="Login" />
-        </div>
-        <div className="formEntity">
-          <TextField label="Password" type="password" />
-        </div>
-        <div className="formEntity">
-          <Button variant="raised" color="primary">
-            Sign in
-          </Button>
+        <div className="container">
+          <h1>Login</h1>
+          <div className="formEntity">
+            <TextField
+              name="login"
+              label="Login"
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <div className="formEntity">
+            <TextField
+              name="password"
+              label="Password"
+              type="password"
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <div className="formEntity">
+            <Button variant="raised" color="primary">
+              Sign in
+            </Button>
+          </div>
         </div>
       </Paper>
-    </div>
-  );
+    );
+  }
+}
+
 
 export default Login;
