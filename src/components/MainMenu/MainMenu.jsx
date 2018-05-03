@@ -21,13 +21,23 @@ const MainMenu = () => (
             </ListItemText> 
           </MenuItem>
         </Link>
-        <Link to="/login"  className="menuItem">
+        <Link to="/login" className="menuItem">
           <MenuItem>
             <ListItemIcon>
               <LoginIcon />
             </ListItemIcon>
             <ListItemText>
               Login
+            </ListItemText> 
+          </MenuItem>
+        </Link>
+        <Link to="/restricted" className="menuItem">
+          <MenuItem>
+            <ListItemIcon>
+              <LoginIcon />
+            </ListItemIcon>
+            <ListItemText>
+              Restricted
             </ListItemText> 
           </MenuItem>
         </Link>

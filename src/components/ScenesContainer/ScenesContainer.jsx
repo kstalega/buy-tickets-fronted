@@ -9,9 +9,9 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import MainMenu from '../MainMenu/MainMenu';
-
-import Home from '../../scenes/Home';
-import Login from '../../scenes/Login';
+import Home from '../../scenes/Home/Home';
+import Login from '../../scenes/Login/Login';
+import Restricted from '../../scenes/Restricted/Restricted';
 
 const drawerWidth = 240;
 
@@ -107,6 +107,7 @@ class PermanentDrawer extends React.Component {
             <div className={classes.toolbar} />
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/restricted" component={Restricted} />
           </main>
           {after}
         </div>
