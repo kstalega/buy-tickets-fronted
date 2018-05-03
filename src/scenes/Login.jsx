@@ -14,7 +14,8 @@ class Login extends React.Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.tryToLogin = this.tryToLogin.bind(this)
+    this.tryToLogin = this.tryToLogin.bind(this);
+    this.successfulLogin = this.successfulLogin.bind(this);
   }
 
   handleInputChange(event) {
@@ -25,6 +26,13 @@ class Login extends React.Component {
     });
   }
 
+  successfulLogin() {
+    this.setState({
+      login: '',
+      password: '',
+    });
+  }
+
   tryToLogin() {
     jQuery.ajax({
       type: 'POST',
@@ -32,12 +40,7 @@ class Login extends React.Component {
       data: {
         login: 'test',
       },
-      success: () => {
-        this.setState = {
-          login: '',
-          password: '',
-        };
-      }
+      complete: this.successfulLogin,
     });
   }
 
@@ -64,8 +67,8 @@ class Login extends React.Component {
             />
           </div>
           <div className="formEntity">
-            <Button 
-              variant="raised" 
+            <Button
+              variant="raised"
               color="primary"
               onClick={this.tryToLogin}
             >

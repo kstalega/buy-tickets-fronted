@@ -6,9 +6,6 @@ import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-import List from 'material-ui/List';
-import { MenuItem } from 'material-ui/Menu';
-import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import MainMenu from '../MainMenu/MainMenu';
@@ -52,11 +49,14 @@ const styles = theme => ({
 });
 
 class PermanentDrawer extends React.Component {
-  state = {
-    anchor: 'left',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      anchor: 'left',
+    };
+  }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       anchor: event.target.value,
     });
@@ -120,4 +120,3 @@ PermanentDrawer.propTypes = {
 };
 
 export default withStyles(styles)(PermanentDrawer);
-
