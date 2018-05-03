@@ -6,6 +6,22 @@ import { MenuList, MenuItem } from 'material-ui/Menu';
 import { ListItemIcon, ListItemText } from 'material-ui/List';
 import LoginIcon from '@material-ui/icons/AccountBox';
 import HomeIcon from '@material-ui/icons/Home';
+import { isLoggedIn } from '../../services/AuthService';
+
+function logoutButton() {
+  return (
+    <Link to="/login" className="menuItem">
+      <MenuItem>
+        <ListItemIcon>
+          <LoginIcon />
+        </ListItemIcon>
+        <ListItemText>
+          Logout
+        </ListItemText> 
+      </MenuItem>
+    </Link>
+  );
+}
 
 const MainMenu = () => (
   <div>
@@ -31,6 +47,7 @@ const MainMenu = () => (
             </ListItemText> 
           </MenuItem>
         </Link>
+        { isLoggedIn() ? logoutButton() : '' }
         <Link to="/restricted" className="menuItem">
           <MenuItem>
             <ListItemIcon>
