@@ -12,6 +12,7 @@ import MainMenu from '../MainMenu/MainMenu';
 import Home from '../../scenes/Home/Home';
 import Login from '../../scenes/Login/Login';
 import Restricted from '../../scenes/Restricted/Restricted';
+import SignUp from '../../scenes/SignUp/SignUp';
 
 const drawerWidth = 240;
 
@@ -20,7 +21,6 @@ const styles = theme => ({
     flexGrow: 1,
   },
   appFrame: {
-    height: 430,
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
@@ -107,6 +107,7 @@ class PermanentDrawer extends React.Component {
             <div className={classes.toolbar} />
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/signup" component={SignUp} />
             <Route path="/restricted" component={Restricted} />
           </main>
           {after}
