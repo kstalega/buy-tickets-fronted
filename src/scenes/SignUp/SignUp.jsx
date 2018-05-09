@@ -38,7 +38,7 @@ class SignUp extends React.Component {
   }
 
   tryToSignUp() {
-    const apiEndpoint = APIsConfig.user.url + APIsConfig.user.login.url;
+    const apiEndpoint = APIsConfig.user.url + APIsConfig.user.login.endPoint;
     const apiMethod = APIsConfig.user.login.method;
     jQuery.ajax({
       type: apiMethod,

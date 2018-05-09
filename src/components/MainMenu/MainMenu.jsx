@@ -57,6 +57,16 @@ const MainMenu = () => (
             </ListItemText> 
           </MenuItem>
         </Link>
+        <Link to="/events/show" className="menuItem">
+          <MenuItem>
+            <ListItemIcon>
+              <LoginIcon />
+            </ListItemIcon>
+            <ListItemText>
+              Show events
+            </ListItemText> 
+          </MenuItem>
+        </Link>
         { isLoggedIn() ? logoutButton() : '' }
         <Link to="/restricted" className="menuItem">
           <MenuItem>

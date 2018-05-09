@@ -3,7 +3,14 @@ const apiEndpoints = {
     url: 'http://usersrestmicroservice.azurewebsites.net',
     login: {
       method: 'post',
-      url: '/api/Users',
+      endPoint: '/api/Users',
+    },
+  },
+  events: {
+    url: 'http://et-microservice.westeurope.cloudapp.azure.com:8181',
+    getEvents: {
+      method: 'get',
+      endPoint: '/events/show',
     },
   },
 };

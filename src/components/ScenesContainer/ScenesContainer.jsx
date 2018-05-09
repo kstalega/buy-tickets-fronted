@@ -13,6 +13,7 @@ import Home from '../../scenes/Home/Home';
 import Login from '../../scenes/Login/Login';
 import Restricted from '../../scenes/Restricted/Restricted';
 import SignUp from '../../scenes/SignUp/SignUp';
+import EventsList from '../../scenes/EventsList/EventsList';
 
 const drawerWidth = 240;
 
@@ -109,6 +110,7 @@ class PermanentDrawer extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route path="/restricted" component={Restricted} />
+            <Route path="/events/show" component={EventsList} />
           </main>
           {after}
         </div>
