@@ -8,7 +8,7 @@ import { getUserInfo } from '../../services/AuthService';
 function userInfo() {
   const user = getUserInfo();
   return (
-    <div>Logged as: { user.userName }</div>
+    <div className="userInfo">Logged as: { user.userName }</div>
   );
 }
 
@@ -17,15 +17,15 @@ class MainMenu extends React.Component {
   renderUserArea() {
     if (!this.props.logged) {
       return (
-        <ul className="nav navbar-nav navbar-right">
-          <li><Link to="/login" className="btn btn-info log">Log in</Link></li>
-          <li><Link to="/signup" className="btn btn-success log">Sign up</Link></li>
+        <ul className="nav navbar-nav navbar-right userArea">
+          <li><span><Link to="/login" className="btn btn-info log">Log in</Link></span></li>
+          <li><span><Link to="/signup" className="btn btn-success log">Sign up</Link></span></li>
         </ul>
       );
     }
 
     return (
-      <ul className="nav navbar-nav navbar-right">
+      <ul className="nav navbar-nav navbar-right userArea">
         <li>{ userInfo() }</li>
         <li><button className="btn btn-danger log" onClick={() => this.props.tryToLogoutUser()}>Logout</button></li>
       </ul>

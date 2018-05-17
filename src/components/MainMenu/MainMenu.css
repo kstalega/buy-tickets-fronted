@@ -2,3 +2,15 @@
 .menuItem {
   text-decoration: none;
 }
+.userArea {
+  padding: 10px 25px 10px 10px;
+}
+.userArea li {
+  margin-left: 10px;
+}
+.userArea .userInfo {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+}

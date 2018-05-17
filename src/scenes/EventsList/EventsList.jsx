@@ -2,6 +2,28 @@ import React from 'react';
 import jQuery from 'jquery';
 import APIsConfig from '../../configs/api';
 
+function renderEvent(event, index) {
+  return (
+    <div className="col-sm-6" key={index}>
+      <div className="panel panel-success">
+        <div className="panel-heading">
+          <h2 className="panel-title">{ event.name }</h2>
+        </div>
+        <div className="panel-body">
+          <ul>
+            <li>Artist: { event.artist }</li>
+            <li>Addres: { event.eventAddress }</li>
+            <li>Date: { event.date }</li>
+            <li>Organizer: { event.organizer }</li>
+            <li>Regular tickets number: { event.regularTicketsNumber }</li>
+            <li>Premium tickets number: { event.premiumTicketsNumber }</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 class EventsList extends React.Component {
   constructor(props) {
     super(props);
@@ -43,23 +65,13 @@ class EventsList extends React.Component {
     });
   }
 
-  renderEvent(event, index) {
-    return (
-      <div style={{ padding: '15px' }} key={index}>
-        <h2>{ event.name }</h2>
-        <h3>Artis: { event.artist }</h3>
-        <p style={{ paddingBottom: '25px' }}>Premium Tickets number { event.premiumTicketsNumber }, regular tickets number { event.regularTicketsNumber } </p>
-      </div>
-    );
-  }
-
   render() {
     const { events } = this.state;
 
     return (
       <div>
         {events.map((event, index) =>
-          this.renderEvent(event, index))}
+          renderEvent(event, index))}
       </div>
     );
   }
