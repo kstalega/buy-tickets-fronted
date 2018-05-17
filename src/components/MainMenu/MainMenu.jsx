@@ -1,16 +1,18 @@
 import React from 'react';
-import './MainMenu.css';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
+import { connect } from 'react-redux';
 import { MenuList, MenuItem } from 'material-ui/Menu';
 import { ListItemIcon, ListItemText } from 'material-ui/List';
 import LoginIcon from '@material-ui/icons/AccountBox';
 import HomeIcon from '@material-ui/icons/Home';
-import { isLoggedIn, logout, getUserInfo } from '../../services/AuthService';
+import './MainMenu.css';
+import { tryToLogoutUser } from '../../actions';
+import { getUserInfo } from '../../services/AuthService';
 
-function logoutButton() {
+function logoutButton(logoutFunc) {
   return (
-    <MenuItem onClick={() => logout()} style={{ backgroundColor: 'rgba(255,0,0,.5)' }}>
+    <MenuItem onClick={() => logoutFunc()} style={{ backgroundColor: 'rgba(255,0,0,.5)' }}>
       <ListItemIcon>
         <LoginIcon />
       </ListItemIcon>
@@ -48,10 +50,10 @@ function userInfo() {
   )
 }
 
-const MainMenu = () => (
+const MainMenu = props => (
   <div>
     <Paper>
-      { isLoggedIn() ? userInfo() : '' }
+      { props.logged ? userInfo() : '' }
 
       <MenuList>
         <Link to="/" className="menuItem">
@@ -65,7 +67,7 @@ const MainMenu = () => (
           </MenuItem>
         </Link>
         {
-          !isLoggedIn() ? 
+          !props.logged ?
           (
             <div>
               <Link to="/login" className="menuItem">
@@ -105,11 +107,19 @@ const MainMenu = () => (
             </ListItemText> 
           </MenuItem>
         </Link>
-        { isLoggedIn() ? logoutButton() : '' }
-        { isLoggedIn() ? restricted() : '' }
+        { props.logged ? logoutButton(props.tryToLogoutUser) : '' }
+        { props.logged ? restricted() : '' }
       </MenuList>
     </Paper>
   </div>
 );
 
-export default MainMenu;
+const mapStateToProps = (state) => {
+  return {
+    logged: state.auth.logged,
+  };
+};
+
+export default connect(mapStateToProps, {
+  tryToLogoutUser,
+})(MainMenu);

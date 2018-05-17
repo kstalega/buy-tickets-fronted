@@ -2,8 +2,10 @@ import React from 'react';
 import jQuery from 'jquery';
 import Paper from 'material-ui/Paper';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import { userLogged } from '../../actions';
 import './Login.css';
 import { setIdToken } from '../../services/AuthService';
 
@@ -39,6 +41,8 @@ class Login extends React.Component {
       password: '',
       logged: true,
     });
+
+    this.props.userLogged();
   }
 
   tryToLogin() {
@@ -90,5 +94,12 @@ class Login extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    logged: state.auth.logged,
+  };
+};
 
-export default Login;
+export default connect(mapStateToProps, {
+  userLogged,
+})(Login);
