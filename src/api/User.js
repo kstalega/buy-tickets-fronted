@@ -9,11 +9,11 @@ export function signUpUser(userData, onSuccess, onError) {
     type: apiMethod,
     url: apiEndpoint,
     data: {
-      email: 'markow@op.pl',
+      email: userData.login,
       name: 'Marcin',
       surname: 'Kowalski',
       phoneNumber: 888999000,
-      hashPassword: 'HASLO1',
+      hashPassword: userData.password,
       userAccountStatus: 'normal',
       accountStatusChangeDate: '2018-05-08T20:15:35.350Z',
       salt: 'string',

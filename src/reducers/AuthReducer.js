@@ -26,9 +26,13 @@ export default (state = INITIAL_STATE, action) => {
         message: '',
       };
     case SIGN_UP_SUCCESS:
-      return { ...state, signUpStarted: false };
+      return {
+        ...state,
+        signUpStarted: false,
+        message: action.payload.message,
+      };
     case SIGN_UP_FAILURE:
-      return { 
+      return {
         ...state,
         signUpStarted: false,
         message: action.payload.message,

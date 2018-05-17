@@ -27,9 +27,6 @@ class EventsList extends React.Component {
       isLoading: false,
       events,
     });
-
-    console.log(this.state);
-    console.log(events);
   }
 
   tryToGetEvents() {

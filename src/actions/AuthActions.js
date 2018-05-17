@@ -3,21 +3,24 @@ import {
   AUTH_USER_LOGOUT,
   SIGN_UP_START,
   SIGN_UP_FAILURE,
-  SIGN_UP_SUCCESS
+  SIGN_UP_SUCCESS,
 } from './types';
 import { logout } from '../services/AuthService';
 import { signUpUser } from '../api/User';
 
-const userSignUpFail = (dispatch) => {
+const userSignUpRequestFail = (dispatch) => {
   dispatch({
     type: SIGN_UP_FAILURE,
   });
 };
 
-const userSignUpSuccess = (dispatch, response) => {
-  if (response.success) {
+const userSignUpRequestSuccess = (dispatch, response) => {
+  if (response.Success) {
     dispatch({
       type: SIGN_UP_SUCCESS,
+      payload: {
+        message: response.ErrorContainer.Message,
+      },
     });
   } else {
     dispatch({
@@ -50,8 +53,8 @@ export const tryToSignUpUser = (userData) => {
     dispatch({ type: SIGN_UP_START });
     signUpUser(
       userData,
-      (response) => { userSignUpSuccess(dispatch, response); },
-      () => userSignUpFail(dispatch),
+      (response) => { userSignUpRequestSuccess(dispatch, response); },
+      () => userSignUpRequestFail(dispatch),
     );
   };
 };
