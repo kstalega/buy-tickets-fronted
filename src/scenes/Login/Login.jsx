@@ -1,10 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
-import Paper from 'material-ui/Paper';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
 import { userLogged } from '../../actions';
 import './Login.css';
 import { setIdToken } from '../../services/AuthService';
@@ -59,37 +56,38 @@ class Login extends React.Component {
 
   render() {
     return !this.state.logged ? (
-      <Paper>
-        <div className="container">
-          <h1>Login</h1>
-          <div className="formEntity">
-            <TextField
-              name="login"
-              label="Login"
-              onChange={this.handleInputChange}
-              value={this.state.login}
-            />
-          </div>
-          <div className="formEntity">
-            <TextField
-              name="password"
-              label="Password"
-              type="password"
-              onChange={this.handleInputChange}
-              value={this.state.password}
-            />
-          </div>
-          <div className="formEntity">
-            <Button
-              variant="raised"
-              color="primary"
-              onClick={this.tryToLogin}
-            >
-              Sign in
-            </Button>
-          </div>
+      <div className="container">
+        <h1>Login</h1>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Login"
+            name="login"
+            onChange={this.handleInputChange}
+            value={this.state.login}
+          />
         </div>
-      </Paper>
+        <div className="form-group">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Password"
+            name="password"
+            onChange={this.handleInputChange}
+            value={this.state.password}
+          />
+        </div>
+        <div className="form-group">
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={this.tryToLogin}
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
     ) : (<Redirect to={{ pathname: '/' }} />);
   }
 }

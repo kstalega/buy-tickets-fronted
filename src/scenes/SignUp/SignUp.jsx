@@ -1,8 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
 import { tryToSignUpUser } from '../../actions';
 
 class SignUp extends React.Component {
@@ -39,69 +36,74 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <Paper>
-        <div className='container'>
-          <h1>Sign up</h1>
-          <div>
-            { this.props.signUpStarted ? 'Please wait, we attempt to creat your account' : '' }
-          </div>
-          <div>
-            {
-              this.props.message ? this.props.message : ''
-            }
-          </div>
-          <div className='formEntity'>
-            <TextField
-              name='login'
-              label='Login'
-              onChange={this.handleInputChange}
-              value={this.state.login}
-            />
-          </div>
-          <div className='formEntity'>
-            <TextField
-              name='password'
-              label='Password'
-              type='password'
-              onChange={this.handleInputChange}
-              value={this.state.password}
-            />
-          </div>
-          <div className='formEntity'>
-            <TextField
-              name='name'
-              label='Name'
-              onChange={this.handleInputChange}
-              value={this.state.name}
-            />
-          </div>
-          <div className='formEntity'>
-            <TextField
-              name='surname'
-              label='Surname'
-              onChange={this.handleInputChange}
-              value={this.state.surname}
-            />
-          </div>
-          <div className='formEntity'>
-            <TextField
-              name='phoneNumber'
-              label='Phone number'
-              onChange={this.handleInputChange}
-              value={this.state.phoneNumber}
-            />
-          </div>
-          <div className='formEntity'>
-            <Button
-              variant='raised'
-              color='primary'
-              onClick={this.tryToSignUp}
-            >
-            Sign Up
-            </Button>
-          </div>
+      <div className="container">
+        <h1>Sign up</h1>
+        <div>
+          { this.props.signUpStarted ? 'Please wait, we attempt to creat your account' : '' }
         </div>
-      </Paper>
+        <div>
+          { this.props.message ? this.props.message : '' }
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Login"
+            name="login"
+            onChange={this.handleInputChange}
+            value={this.state.login}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Password"
+            name="password"
+            onChange={this.handleInputChange}
+            value={this.state.password}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Name"
+            name="name"
+            onChange={this.handleInputChange}
+            value={this.state.name}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Surname"
+            name="surname"
+            onChange={this.handleInputChange}
+            value={this.state.surname}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Phone number"
+            name="phoneNumber"
+            onChange={this.handleInputChange}
+            value={this.state.phoneNumber}
+          />
+        </div>
+        <div className="form-group">
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={this.tryToSignUp}
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
     );
   }
 }

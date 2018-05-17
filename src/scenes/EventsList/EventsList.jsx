@@ -1,6 +1,5 @@
 import React from 'react';
 import jQuery from 'jquery';
-import { Paper, Divider } from 'material-ui';
 import APIsConfig from '../../configs/api';
 
 class EventsList extends React.Component {
@@ -50,7 +49,6 @@ class EventsList extends React.Component {
         <h2>{ event.name }</h2>
         <h3>Artis: { event.artist }</h3>
         <p style={{ paddingBottom: '25px' }}>Premium Tickets number { event.premiumTicketsNumber }, regular tickets number { event.regularTicketsNumber } </p>
-        <Divider/>
       </div>
     );
   }
@@ -59,10 +57,10 @@ class EventsList extends React.Component {
     const { events } = this.state;
 
     return (
-      <Paper>
+      <div>
         {events.map((event, index) =>
           this.renderEvent(event, index))}
-      </Paper>
+      </div>
     );
   }
 }
