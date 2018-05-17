@@ -1,16 +1,20 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Paper from 'material-ui/Paper';
+import { Redirect } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import './Login.css';
+import { setIdToken } from '../../services/AuthService';
+
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: '',
-      password: '',
+      login: 'roblew@gmail.com',
+      password: 'HASLO8',
+      logged: false,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,10 +30,14 @@ class Login extends React.Component {
     });
   }
 
-  successfulLogin() {
+  successfulLogin(response) {
+    const idToken = response.Result;
+    setIdToken(idToken);
+
     this.setState({
       login: '',
       password: '',
+      logged: true,
     });
   }
 
@@ -40,12 +48,13 @@ class Login extends React.Component {
       data: {
         login: 'test',
       },
-      complete: this.successfulLogin,
+      dataType: 'json',
+      success: this.successfulLogin,
     });
   }
 
   render() {
-    return (
+    return !this.state.logged ? (
       <Paper>
         <div className="container">
           <h1>Login</h1>
@@ -77,7 +86,7 @@ class Login extends React.Component {
           </div>
         </div>
       </Paper>
-    );
+    ) : (<Redirect to={{ pathname: '/' }} />);
   }
 }
 

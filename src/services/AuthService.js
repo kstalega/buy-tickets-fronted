@@ -1,4 +1,5 @@
 import decode from 'jwt-decode';
+
 const ID_TOKEN_KEY = 'id_token';
 
 export function login() {
@@ -34,12 +35,12 @@ export function isLoggedIn() {
 
 function getTokenExpirationDate(encodedToken) {
   const token = decode(encodedToken);
-  if (!token.exp) { 
-    return null; 
+  if (!token.expirationDate) {
+    return null;
   }
 
   const date = new Date(0);
-  date.setUTCSeconds(token.exp);
+  date.setUTCSeconds(token.expirationDate);
 
   return date;
 }
@@ -47,4 +48,12 @@ function getTokenExpirationDate(encodedToken) {
 function isTokenExpired(token) {
   const expirationDate = getTokenExpirationDate(token);
   return expirationDate < new Date();
+}
+
+
+export function getUserInfo() {
+  const idToken = getIdToken();
+  const decodedIdToken = decode(idToken);
+
+  return decodedIdToken;
 }
