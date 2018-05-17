@@ -1,7 +1,7 @@
 const apiEndpoints = {
   user: {
     url: 'http://usersrestmicroservice.azurewebsites.net',
-    login: {
+    signUp: {
       method: 'post',
       endPoint: '/api/Users',
     },

@@ -1,10 +1,16 @@
 import {
   LOGIN_USER_SUCCESS,
   AUTH_USER_LOGOUT,
+  SIGN_UP_START,
+  SIGN_UP_FAILURE,
+  SIGN_UP_SUCCESS,
+
 } from '../actions/types';
 
 const INITIAL_STATE = {
   logged: false,
+  signUpStarted: false,
+  message: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -13,6 +19,20 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, logged: true };
     case AUTH_USER_LOGOUT:
       return { ...state, logged: false };
+    case SIGN_UP_START:
+      return { 
+        ...state,
+        signUpStarted: true,
+        message: '',
+      };
+    case SIGN_UP_SUCCESS:
+      return { ...state, signUpStarted: false };
+    case SIGN_UP_FAILURE:
+      return { 
+        ...state,
+        signUpStarted: false,
+        message: action.payload.message,
+      };
     default:
       return state;
   }
