@@ -6,6 +6,7 @@ import Login from '../../scenes/Login/Login';
 import Restricted from '../../scenes/Restricted/Restricted';
 import SignUp from '../../scenes/SignUp/SignUp';
 import EventsList from '../../scenes/EventsList/EventsList';
+import AddEvent from '../../scenes/AddEvent/AddEvent';
 
 const ScenesContainer = () =>
   (
@@ -17,6 +18,7 @@ const ScenesContainer = () =>
       <Route path="/signup" component={SignUp} />
       <Route path="/restricted" component={Restricted} />
       <Route path="/events/show" component={EventsList} />
+      <Route path="/events/add" component={AddEvent} />
     </div>
   );
 

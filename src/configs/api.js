@@ -12,6 +12,10 @@ const apiEndpoints = {
       method: 'get',
       endPoint: '/events/show',
     },
+    addEvent: {
+      method: 'post',
+      endPoint: '/events/',
+    },
   },
 };
 

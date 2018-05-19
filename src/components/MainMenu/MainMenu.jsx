@@ -45,6 +45,9 @@ class MainMenu extends React.Component {
           <li>
             <Link to="/events/show">Events</Link>
           </li>
+          <li>
+            <Link to="/events/add">Add event</Link>
+          </li>  
         </ul>
         { this.renderUserArea() }
       </nav>
