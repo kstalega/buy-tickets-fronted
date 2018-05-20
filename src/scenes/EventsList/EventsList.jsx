@@ -1,28 +1,8 @@
 import React from 'react';
 import jQuery from 'jquery';
+import { connect } from 'react-redux';
 import APIsConfig from '../../configs/api';
-
-function renderEvent(event, index) {
-  return (
-    <div className="col-sm-6" key={index}>
-      <div className="panel panel-success">
-        <div className="panel-heading">
-          <h2 className="panel-title">{ event.name }</h2>
-        </div>
-        <div className="panel-body">
-          <ul>
-            <li>Artist: { event.artist }</li>
-            <li>Addres: { event.eventAddress }</li>
-            <li>Date: { event.date }</li>
-            <li>Organizer: { event.organizer }</li>
-            <li>Regular tickets number: { event.regularTicketsNumber }</li>
-            <li>Premium tickets number: { event.premiumTicketsNumber }</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { EventActionDeleteTry } from '../../actions';
 
 class EventsList extends React.Component {
   constructor(props) {
@@ -65,16 +45,45 @@ class EventsList extends React.Component {
     });
   }
 
+  renderEvent(event, index) {
+    return (
+      <div className="col-sm-6" key={index}>
+        <div className="panel panel-success">
+          <div className="panel-heading">
+            <h2 className="panel-title">{ event.name } </h2>
+          </div>
+          <div className="panel-body clearfix">
+            <ul>
+              <li>Artist: { event.artist }</li>
+              <li>Addres: { event.eventAddress }</li>
+              <li>Date: { event.date }</li>
+              <li>Organizer: { event.organizer }</li>
+              <li>Regular tickets number: { event.regularTicketsNumber }</li>
+              <li>Premium tickets number: { event.premiumTicketsNumber }</li>
+            </ul>
+            <button
+              type="button"
+              className="btn btn-danger pull-right"
+              onClick={() => this.props.EventActionDeleteTry()}
+            >
+            Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { events } = this.state;
 
     return (
       <div>
         {events.map((event, index) =>
-          renderEvent(event, index))}
+          this.renderEvent(event, index))}
       </div>
     );
   }
 }
 
-export default EventsList;
+export default connect(null, { EventActionDeleteTry })(EventsList);

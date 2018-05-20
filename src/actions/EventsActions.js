@@ -3,6 +3,8 @@ import {
 } from './types';
 import { eventAPI } from '../api/Event';
 
+export * from './Events/EventsActionsDelete';
+
 const EventCreateRequestFailure = (dispatch) => {
   dispatch({
     type: EVENT.CREATE.REQUEST_FAILURE,
@@ -37,7 +39,3 @@ export const EventActionCreateTry = (eventData) => {
     );
   };
 };
-
-export const EventActionDeleteTry = () => {
-  console.log('delete attempt');
-}

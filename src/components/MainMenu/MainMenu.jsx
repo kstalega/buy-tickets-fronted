@@ -34,23 +34,25 @@ class MainMenu extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default">
-        <div className="navbar-header">
-          <Link className="navbar-brand" to="/">Buy tickets</Link>
-        </div>
-        <ul className="nav navbar-nav">
-          <li>
-            <Link to="/">Start</Link>
-          </li>
-          <li>
-            <Link to="/events/show">Events</Link>
-          </li>
-          <li>
-            <Link to="/events/create">Add event</Link>
-          </li>  
-        </ul>
-        { this.renderUserArea() }
-      </nav>
+      <div className="col-sm-12">
+        <nav className="navbar navbar-default">
+          <div className="navbar-header">
+            <Link className="navbar-brand" to="/">Buy tickets</Link>
+          </div>
+          <ul className="nav navbar-nav">
+            <li>
+              <Link to="/">Start</Link>
+            </li>
+            <li>
+              <Link to="/events/show">Events</Link>
+            </li>
+            <li>
+              <Link to="/events/create">Add event</Link>
+            </li>  
+          </ul>
+          { this.renderUserArea() }
+        </nav>
+      </div>
     )
   }
 }
