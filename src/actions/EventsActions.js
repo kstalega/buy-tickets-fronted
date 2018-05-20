@@ -1,18 +1,43 @@
 import {
-  EVENT_ADD,
+  EVENT,
 } from './types';
 import { eventAPI } from '../api/Event';
 
-export const tryToCreateEventAction = (eventData) => {
+const EventCreateRequestFailure = (dispatch) => {
+  dispatch({
+    type: EVENT.CREATE.REQUEST_FAILURE,
+  });
+};
+
+const EventCreateRequestSuccess = (dispatch, response) => {
+  if (response.Success) {
+    dispatch({
+      type: EVENT.CREATE.SUCCESS,
+      payload: {
+        message: response,
+      },
+    });
+  } else {
+    dispatch({
+      type: EVENT.CREATE.FAILURE,
+      payload: {
+        message: response,
+      },
+    });
+  }
+};
+
+export const EventActionCreateTry = (eventData) => {
   return (dispatch) => {
+    dispatch({ type: EVENT.CREATE.TRY });
     eventAPI.add(
       eventData,
-      () => { console.log('success'); },
-      () => { console.log('failure'); },
+      (response) => { EventCreateRequestSuccess(dispatch, response); },
+      () => { EventCreateRequestFailure(dispatch); },
     );
   };
 };
 
-export const tryToDeleteEventAction = () => {
+export const EventActionDeleteTry = () => {
   console.log('delete attempt');
 }

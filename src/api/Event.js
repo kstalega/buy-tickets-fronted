@@ -13,7 +13,6 @@ export const eventAPI = {
       dataType: 'json',
       success: onSuccess,
       error: onError,
-      contentType: 'application/json;charset=UTF-8',
     });
   },
 };
