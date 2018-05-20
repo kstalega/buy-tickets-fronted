@@ -14,7 +14,7 @@ class SignUp extends React.Component {
   defaultState = {
     form: {
       artist: '',
-      date: '',
+      date: '2018-07-10T19:30:00',
       eventAddress: '',
       eventType: '',
       name: '',
@@ -48,10 +48,10 @@ class SignUp extends React.Component {
       <div className="container">
         <h1>Add new event</h1>
         <div>
-          { this.props.formInProgress ? "Please wait, we attempt to create new event" : "" }
+          { this.props.formInProgress ? 'Please wait, we attempt to create new event' : '' }
         </div>
         <div>
-          { this.props.message ? this.props.message : "" }
+          { this.props.message ? this.props.message : '' }
         </div>
         <div className="form-group">
           <input
@@ -168,10 +168,10 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { formInProgress } = state.event.create;
+  const { formInProgress, message } = state.event.create;
 
   return {
-    formInProgress,
+    formInProgress, message,
   };
 };
 
