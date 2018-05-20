@@ -16,6 +16,10 @@ const apiEndpoints = {
       method: 'post',
       endPoint: '/events/',
     },
+    deleteEvent: {
+      method: 'delete',
+      endPoint: '/events/',
+    }
   },
 };
 

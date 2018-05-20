@@ -1,8 +1,13 @@
 import { EVENT } from '../types';
+import { eventAPI } from '../../api/Event';
 
-export const EventActionDeleteTry = () => {
+export const EventActionDeleteTry = (eventID) => {
   return (dispatch) => {
     dispatch({ type: EVENT.DELETE.TRY });
-    console.log('delete attempt');
+    eventAPI.delete(
+      eventID,
+      () => {},
+      () => {},
+    )
   };
 };

@@ -15,5 +15,17 @@ export const eventAPI = {
       error: onError,
     });
   },
-};
 
+  delete: function deleteEvent(eventID, onSuccess, onError) {
+    const apiEndpoint = APIsConfig.events.url + APIsConfig.events.deleteEvent.endPoint + eventID;
+    const apiMethod = APIsConfig.events.deleteEvent.method;
+
+    jQuery.ajax({
+      type: apiMethod,
+      url: apiEndpoint,
+      dataType: 'json',
+      success: onSuccess,
+      error: onError,
+    });
+  },
+};

@@ -64,7 +64,7 @@ class EventsList extends React.Component {
             <button
               type="button"
               className="btn btn-danger pull-right"
-              onClick={() => this.props.EventActionDeleteTry()}
+              onClick={() => this.props.EventActionDeleteTry(event.id)}
             >
             Delete
             </button>
