@@ -3,6 +3,7 @@ import jQuery from 'jquery';
 import { connect } from 'react-redux';
 import APIsConfig from '../../configs/api';
 import { EventActionDeleteTry } from '../../actions';
+import { getAuthHeader } from '../../services/AuthService';
 
 class EventsList extends React.Component {
   constructor(props) {
@@ -35,6 +36,12 @@ class EventsList extends React.Component {
       isLoading: true,
     });
 
+    const headers =
+      APIsConfig.orders.fetchAllOrders.authenticationNeeded
+        ? getAuthHeader()
+        : {};
+
+
     const type = APIsConfig.events.getEvents.method;
     const url = APIsConfig.events.url + APIsConfig.events.getEvents.endPoint;
     jQuery.ajax({
@@ -42,6 +49,7 @@ class EventsList extends React.Component {
       url,
       success: this.eventsFetched,
       dataType: 'json',
+      headers,
     });
   }
 
