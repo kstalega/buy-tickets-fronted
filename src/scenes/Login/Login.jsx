@@ -45,7 +45,7 @@ class Login extends React.Component {
   tryToLogin() {
     jQuery.ajax({
       type: 'POST',
-      url: `http://usersrestmicroservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
+      url: `http://microservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
       data: {
         login: 'test',
       },

@@ -1,6 +1,6 @@
 const apiEndpoints = {
   user: {
-    url: 'http://usersrestmicroservice.azurewebsites.net',
+    url: 'http:/usersmicroservice.azurewebsites.net',
     signUp: {
       method: 'post',
       endPoint: '/api/Users',

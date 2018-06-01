@@ -22,11 +22,11 @@ class EventsList extends React.Component {
     this.tryToGetEvents();
   }
 
-  eventsFetched(events) {
+  eventsFetched(response) {
     this.setState({
       isLoaded: true,
       isLoading: false,
-      events,
+      events: response.result,
     });
   }
 
