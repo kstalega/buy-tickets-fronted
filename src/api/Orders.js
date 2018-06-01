@@ -1,4 +1,3 @@
-import jQuery from 'jquery';
 import APIsConfig from '../configs/api';
 import { commonAPI } from '../api/Common';
 
