@@ -7,9 +7,6 @@ import ScenesContainer from './components/ScenesContainer/ScenesContainer';
 import reducers from './reducers';
 
 const defaultState = {
-  auth: {
-    logged: false,
-  },
 };
 
 const store = createStore(reducers, defaultState, applyMiddleware(ReduxThunk));
