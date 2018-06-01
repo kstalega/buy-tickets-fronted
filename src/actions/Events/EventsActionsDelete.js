@@ -8,6 +8,6 @@ export const EventActionDeleteTry = (eventID) => {
       eventID,
       () => {},
       () => {},
-    )
+    );
   };
 };

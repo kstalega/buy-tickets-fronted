@@ -56,3 +56,9 @@ export function getUserInfo() {
 
   return decodedIdToken;
 }
+
+export function getAuthHeader() {
+  return {
+    Authorization: `Bearer ${getIdToken()}`,
+  };
+}

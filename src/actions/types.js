@@ -22,3 +22,10 @@ export const EVENT = {
   },
 };
 
+export const ORDERS = {
+  FETCH: {
+    START: 'orders_fetch_start',
+    SUCCESS: 'orders_fetch_success',
+    ERROR: 'orders_fetch_error',
+  },
+};

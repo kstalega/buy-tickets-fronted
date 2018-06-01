@@ -7,6 +7,7 @@ import Restricted from '../../scenes/Restricted/Restricted';
 import SignUp from '../../scenes/SignUp/SignUp';
 import EventsList from '../../scenes/EventsList/EventsList';
 import CreateEvent from '../../scenes/CreateEvent/CreateEvent';
+import ShowOrders from '../../scenes/ShowOrders/ShowOrders';
 
 const ScenesContainer = () =>
   (
@@ -19,6 +20,7 @@ const ScenesContainer = () =>
       <Route path="/restricted" component={Restricted} />
       <Route path="/events/show" component={EventsList} />
       <Route path="/events/create" component={CreateEvent} />
+      <Route path="/orders/show" component={ShowOrders} />
     </div>
   );
 

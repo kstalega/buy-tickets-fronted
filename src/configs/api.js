@@ -21,6 +21,14 @@ const apiEndpoints = {
       endPoint: '/events/',
     }
   },
+  orders: {
+    url: 'http://rso-mf.westeurope.cloudapp.azure.com:8181/orders',
+    fetchOrders: {
+      method: 'get',
+      endPoint: '/all_orders',
+      authenticationNeeded: true,
+    },
+  },
 };
 
 export default apiEndpoints;
