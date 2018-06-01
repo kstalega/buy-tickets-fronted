@@ -60,6 +60,7 @@ class EventsList extends React.Component {
               <li>Organizer: { event.organizer }</li>
               <li>Regular tickets number: { event.regularTicketsNumber }</li>
               <li>Premium tickets number: { event.premiumTicketsNumber }</li>
+              <li>Status: { event.status }</li>
             </ul>
             <button
               type="button"

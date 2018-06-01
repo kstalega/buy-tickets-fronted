@@ -6,9 +6,10 @@ import {
   SIGN_UP_SUCCESS,
 
 } from '../actions/types';
+import { isLoggedIn } from '../services/AuthService';
 
 const INITIAL_STATE = {
-  logged: false,
+  logged: isLoggedIn(),
   signUpStarted: false,
   message: '',
 };
