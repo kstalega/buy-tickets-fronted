@@ -1,40 +1,32 @@
 import jQuery from 'jquery';
 import APIsConfig from '../configs/api';
-import { getAuthHeader } from '../services/AuthService';
+import { commonAPI } from '../api/Common';
 
 export const ordersAPI = {
   fetchAll: function fetchAll(onSuccess, onError) {
-    const apiEndpoint = APIsConfig.orders.url + APIsConfig.orders.fetchAllOrders.endPoint;
-    const apiMethod = APIsConfig.orders.fetchAllOrders.method;
-    const headers =
-      APIsConfig.orders.fetchAllOrders.authenticationNeeded
-        ? getAuthHeader()
-        : {};
+    const { fetchAllOrders } = APIsConfig.orders;
+    const apiEndpoint = APIsConfig.orders.url + fetchAllOrders.endPoint;
+    const { method: apiMethod, authenticationNeeded } = fetchAllOrders;
 
-    jQuery.ajax({
-      type: apiMethod,
-      url: apiEndpoint,
-      dataType: 'json',
-      success: onSuccess,
-      error: onError,
-      headers,
-    });
+    commonAPI.ajax(
+      apiEndpoint,
+      apiMethod,
+      authenticationNeeded,
+      onSuccess,
+      onError,
+    );
   },
   fetchByUserID: function fetchByUserID(userID, onSuccess, onError) {
-    const apiEndpoint = APIsConfig.orders.url + APIsConfig.orders.fetchUserOrders.endPoint + userID;
-    const apiMethod = APIsConfig.orders.fetchUserOrders.method;
-    const headers =
-      APIsConfig.orders.fetchAllOrders.authenticationNeeded
-        ? getAuthHeader()
-        : {};
+    const { fetchUserOrders } = APIsConfig.orders;
+    const apiEndpoint = APIsConfig.orders.url + fetchUserOrders.endPoint + userID;
+    const { method: apiMethod, authenticationNeeded } = fetchUserOrders;
 
-    jQuery.ajax({
-      type: apiMethod,
-      url: apiEndpoint,
-      dataType: 'json',
-      success: onSuccess,
-      error: onError,
-      headers,
-    });
+    commonAPI.ajax(
+      apiEndpoint,
+      apiMethod,
+      authenticationNeeded,
+      onSuccess,
+      onError,
+    );
   },
 };
