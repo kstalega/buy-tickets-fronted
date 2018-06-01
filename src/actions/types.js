@@ -28,4 +28,9 @@ export const ORDERS = {
     SUCCESS: 'orders_fetch_success',
     ERROR: 'orders_fetch_error',
   },
+  FETCH_BY_USER_ID: {
+    START: 'orders_fetch_by_user_id_start',
+    SUCCESS: 'orders_fetch_by_user_id_success',
+    ERROR: 'orders_fetch_by_user_id_error',
+  },
 };

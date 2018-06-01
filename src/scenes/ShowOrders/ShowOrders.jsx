@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ActionsOrdersFetch } from '../../actions';
+import { ActionsOrdersFetchAll } from '../../actions';
 
 class ShowOrders extends React.Component {
   componentDidMount() {
-    this.props.ActionsOrdersFetch();
+    this.props.ActionsOrdersFetchAll();
   }
 
   render() {
@@ -14,4 +14,4 @@ class ShowOrders extends React.Component {
   }
 }
 
-export default connect(null, { ActionsOrdersFetch })(ShowOrders);
+export default connect(null, { ActionsOrdersFetchAll })(ShowOrders);

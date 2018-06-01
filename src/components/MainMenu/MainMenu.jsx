@@ -50,7 +50,10 @@ class MainMenu extends React.Component {
               <Link to="/events/create">Add event</Link>
             </li>
             <li>
-              <Link to="/orders/show">Show your order</Link>
+              <Link to="/orders/all">All orders</Link>
+            </li>
+            <li>
+              <Link to="/orders/my">My orders</Link>
             </li>
           </ul>
           { this.renderUserArea() }

@@ -8,6 +8,7 @@ import SignUp from '../../scenes/SignUp/SignUp';
 import EventsList from '../../scenes/EventsList/EventsList';
 import CreateEvent from '../../scenes/CreateEvent/CreateEvent';
 import ShowOrders from '../../scenes/ShowOrders/ShowOrders';
+import ShowUserOrders from '../../scenes/ShowUserOrders/ShowUserOrders';
 
 const ScenesContainer = () =>
   (
@@ -20,7 +21,8 @@ const ScenesContainer = () =>
       <Route path="/restricted" component={Restricted} />
       <Route path="/events/show" component={EventsList} />
       <Route path="/events/create" component={CreateEvent} />
-      <Route path="/orders/show" component={ShowOrders} />
+      <Route path="/orders/all" component={ShowOrders} />
+      <Route path="/orders/my" component={ShowUserOrders} />
     </div>
   );
 
