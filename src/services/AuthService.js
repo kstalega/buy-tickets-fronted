@@ -50,7 +50,6 @@ function isTokenExpired(token) {
   return expirationDate < new Date();
 }
 
-
 export function getUserInfo() {
   const idToken = getIdToken();
   const decodedIdToken = decode(idToken);

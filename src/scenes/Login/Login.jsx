@@ -11,8 +11,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: 'roblew@gmail.com',
-      password: 'HASLO8',
+      login: 'roblew@op.pl',
+      password: 'HASLO1',
       logged: false,
     };
 
@@ -30,22 +30,24 @@ class Login extends React.Component {
   }
 
   successfulLogin(response) {
-    const idToken = response.Result;
-    setIdToken(idToken);
+    if (response.Success) {
+      const idToken = response.Result;
+      setIdToken(idToken);
 
-    this.setState({
-      login: '',
-      password: '',
-      logged: true,
-    });
+      this.setState({
+        login: '',
+        password: '',
+        logged: true,
+      });
 
-    this.props.userLogged();
+      this.props.userLogged();
+    }
   }
 
   tryToLogin() {
     jQuery.ajax({
       type: 'POST',
-      url: `http://microservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
+      url: `http://usersmicroservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
       data: {
         login: 'test',
       },
