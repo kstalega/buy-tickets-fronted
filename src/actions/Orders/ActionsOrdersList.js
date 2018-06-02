@@ -2,18 +2,18 @@ import { ORDERS } from '../types';
 import { ordersAPI } from '../../api/Orders';
 
 function ActionsOrdersFetchAllRequestSuccess(dispatch, response) {
-  if (response.Success) {
+  if (response.success) {
     dispatch({
       type: ORDERS.FETCH.SUCCESS,
       payload: {
-        message: response.ErrorContainer.Message,
+        message: response.errorContainer.message,
       },
     });
   } else {
     dispatch({
       type: ORDERS.FETCH.ERROR,
       payload: {
-        message: response.ErrorContainer.Message,
+        message: response.errorContainer.message,
       },
     });
   }
@@ -29,24 +29,24 @@ export const ActionsOrdersFetchAll = () => {
 };
 
 function ActionsOrdersFetchByUserIDRequestSuccess(dispatch, response) {
-  if (response.Success) {
+  if (response.success) {
     dispatch({
       type: ORDERS.FETCH_BY_USER_ID.SUCCESS,
       payload: {
-        message: response.ErrorContainer.Message,
+        message: response.errorContainer.message,
       },
     });
   } else {
     dispatch({
       type: ORDERS.FETCH_BY_USER_ID,
       payload: {
-        message: response.ErrorContainer.Message,
+        message: response.errorContainer.message,
       },
     });
   }
 }
 
-export const ActionsOrdersFetchByUserID = (userID = 5) => {
+export const ActionsOrdersFetchByUserID = (userID) => {
   return (dispatch) => {
     dispatch({ type: ORDERS.FETCH_BY_USER_ID.START });
     ordersAPI.fetchByUserID(
