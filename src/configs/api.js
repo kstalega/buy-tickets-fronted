@@ -1,10 +1,14 @@
 const apiEndpoints = {
   user: {
-    url: 'http:/usersmicroservice.azurewebsites.net',
+    url: 'http://usersmicroservice.azurewebsites.net',
     signUp: {
       method: 'post',
       endPoint: '/api/Users',
     },
+    getUserInfo: {
+      method: 'get',
+      endPoint: '/api/Users/',
+    }
   },
   events: {
     url: 'http://et-microservice.westeurope.cloudapp.azure.com:8181',

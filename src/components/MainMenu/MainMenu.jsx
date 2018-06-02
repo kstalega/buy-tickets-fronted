@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './MainMenu.css';
-import { tryToLogoutUser } from '../../actions';
+import { tryToLogoutUser, getUserInfoByID } from '../../actions';
 import { getUserInfo } from '../../services/AuthService';
 
 function userInfo() {
@@ -19,6 +19,13 @@ function userInfo() {
 }
 
 class MainMenu extends React.Component {
+  componentDidMount() {
+    if (this.props.logged) {
+      const user = getUserInfo();
+      this.props.getUserInfoByID(user.userId);
+    }
+  }
+
   renderUserArea() {
     if (!this.props.logged) {
       return (
@@ -74,6 +81,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  tryToLogoutUser,
-})(MainMenu);
+export default connect(
+  mapStateToProps,
+  {
+    tryToLogoutUser,
+    getUserInfoByID,
+  }
+)(MainMenu);
