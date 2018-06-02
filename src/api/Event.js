@@ -1,5 +1,6 @@
 import jQuery from 'jquery';
 import APIsConfig from '../configs/api';
+import { commonAPI } from '../api/Common';
 
 export const eventAPI = {
   add: function add(eventData, onSuccess, onError) {
@@ -27,5 +28,19 @@ export const eventAPI = {
       success: onSuccess,
       error: onError,
     });
+  },
+
+  fetchSingle: function fetchSingle(eventID, onSuccess, onError) {
+    const apiEndpoint = APIsConfig.events.url + APIsConfig.events.fetchSingle.endPoint + eventID;
+    const apiMethod = APIsConfig.events.fetchSingle.method;
+    const authenticationNeeded = APIsConfig.events.fetchSingle.authenticationNeeded;
+
+    commonAPI.ajax(
+      apiEndpoint,
+      apiMethod,
+      authenticationNeeded,
+      onSuccess,
+      onError,
+    );
   },
 };

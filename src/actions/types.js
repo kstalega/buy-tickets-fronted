@@ -15,10 +15,16 @@ export const EVENT = {
     REQUEST_FAILURE: 'event_create_request_failure',
   },
   DELETE: {
-    TRY: 'event_delete_try',
-    SUCCESS: 'event_delete_success',
-    FAILURE: 'event_delete_failure',
-    REQUEST_FAILURE: 'event_delete_request_failure',
+    TRY: 'event_fetch_single_try',
+    SUCCESS: 'event_fetch_single_success',
+    FAILURE: 'event_fetch_single_failure',
+    REQUEST_FAILURE: 'event_fetch_single_request_failure',
+  },
+  FETCH_SINGLE: {
+    TRY: 'event_fetch_single_try',
+    SUCCESS: 'event_fetch_single_success',
+    FAILURE: 'event_fetch_single_failure',
+    REQUEST_FAILURE: 'event_fetch_single_request_failure',
   },
 };
 

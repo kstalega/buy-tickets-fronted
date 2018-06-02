@@ -19,7 +19,12 @@ const apiEndpoints = {
     deleteEvent: {
       method: 'delete',
       endPoint: '/events/',
-    }
+    },
+    fetchSingle: {
+      method: 'get',
+      endPoint: '/tickets/event/',
+      authenticationNeeded: true,
+    },
   },
   orders: {
     url: 'http://rso-mf.westeurope.cloudapp.azure.com:8181/orders',

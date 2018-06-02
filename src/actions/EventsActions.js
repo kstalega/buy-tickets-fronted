@@ -4,6 +4,7 @@ import {
 import { eventAPI } from '../api/Event';
 
 export * from './Events/EventsActionsDelete';
+export * from './Events/ActionsEventsFetch';
 
 const EventCreateRequestFailure = (dispatch) => {
   dispatch({
