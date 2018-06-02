@@ -1,6 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import APIsConfig from '../../configs/api';
 import { EventActionDeleteTry } from '../../actions';
 import { getAuthHeader } from '../../services/AuthService';
@@ -58,7 +59,7 @@ class EventsList extends React.Component {
       <div className="col-sm-6" key={index}>
         <div className="panel panel-success">
           <div className="panel-heading">
-            <h2 className="panel-title">{ event.name } </h2>
+            <h2 className="panel-title">{ event.name } [<Link to={`/event/${ event.id}` }>See details</Link>]</h2>
           </div>
           <div className="panel-body clearfix">
             <ul>
@@ -75,7 +76,7 @@ class EventsList extends React.Component {
               className="btn btn-danger pull-right"
               onClick={() => this.props.EventActionDeleteTry(event.id)}
             >
-            Delete
+            Cancel
             </button>
           </div>
         </div>

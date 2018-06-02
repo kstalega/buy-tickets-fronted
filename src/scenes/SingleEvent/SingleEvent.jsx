@@ -4,7 +4,9 @@ class SingleEvent extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>Single event view {this.props.match.params.eventID || 'test'}</div>
+      <div className="col-sm-12">
+        <div>Single event view {this.props.match.params.eventID || 'test'}</div>
+      </div>
     );
   }
 }
