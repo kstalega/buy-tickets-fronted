@@ -58,3 +58,9 @@ export const tryToSignUpUser = (userData) => {
     );
   };
 };
+
+export const getUserInfo = (userID) => {
+  return (dispatch) => {
+
+  };
+}

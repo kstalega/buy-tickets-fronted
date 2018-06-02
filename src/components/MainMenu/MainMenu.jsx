@@ -7,13 +7,18 @@ import { getUserInfo } from '../../services/AuthService';
 
 function userInfo() {
   const user = getUserInfo();
+  if (user.permissionId === 1) {
+    return (
+      <div className="userInfo">You're logged as an Administrator</div>
+    );
+  }
+
   return (
-    <div className="userInfo">Logged as: { user.userName }</div>
+    <div className="userInfo">You're logged as an Regular User</div>
   );
 }
 
 class MainMenu extends React.Component {
-
   renderUserArea() {
     if (!this.props.logged) {
       return (
