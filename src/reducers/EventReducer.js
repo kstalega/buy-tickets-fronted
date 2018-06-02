@@ -1,5 +1,6 @@
 import { EVENT } from '../actions/types';
 import { EventsCreateReducer, EventsGetTicketsForEventReducer } from './Events';
+import { checkType } from '../misc/misc';
 
 const INITIAL_STATE = {
   create: {
@@ -10,18 +11,6 @@ const INITIAL_STATE = {
     ticketList: [],
   },
 };
-
-function checkType(type, objectTypes) {
-  const actionTypes = Object.values(objectTypes);
-
-  for (let i = 0; i < actionTypes.length; i += 1) {
-    if (actionTypes[i] === type) {
-      return type;
-    }
-  }
-
-  return false;
-}
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

@@ -4,14 +4,19 @@ import {
   SIGN_UP_START,
   SIGN_UP_FAILURE,
   SIGN_UP_SUCCESS,
-
+  USERS,
 } from '../actions/types';
 import { isLoggedIn } from '../services/AuthService';
+import { UsersReducer } from './Users';
+import { checkType } from '../misc/misc';
 
 const INITIAL_STATE = {
   logged: isLoggedIn(),
   signUpStarted: false,
   message: '',
+  userInfo: {
+    mail: '',
+  },
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -38,6 +43,12 @@ export default (state = INITIAL_STATE, action) => {
         signUpStarted: false,
         message: action.payload.message,
       };
+    // serve userInfo part of state
+    case checkType(action.type, USERS.GET_USER_INFO):
+      return {
+        ...state,
+        userInfo: UsersReducer(state.userInfo, action),
+      }
     default:
       return state;
   }

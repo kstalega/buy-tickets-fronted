@@ -6,6 +6,16 @@ export const SIGN_UP_START = 'sign_up_start';
 export const SIGN_UP_FAILURE = 'sign_up_failure';
 export const SIGN_UP_SUCCESS = 'sign_up_success';
 
+// actions types connected to the authentication
+export const USERS = {
+  GET_USER_INFO: {
+    TRY: 'users_get_user_info_try',
+    SUCCESS: 'users_get_user_info_success',
+    FAILURE: 'users_get_user_info_failure',
+    REQUEST_FAILURE: 'users_get_user_info_request_failure',
+  },
+};
+
 // actions types connected to the events
 export const EVENT = {
   CREATE: {
