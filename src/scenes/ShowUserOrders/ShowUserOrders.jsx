@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ActionsOrdersFetchByUserID } from '../../actions';
+import { getUserInfo } from '../../services/AuthService';
 
 class ShowOrders extends React.Component {
   componentDidMount() {
-    this.props.ActionsOrdersFetchByUserID();
+    const user = getUserInfo();
+    this.props.ActionsOrdersFetchByUserID(user.userId);
   }
 
   render() {
