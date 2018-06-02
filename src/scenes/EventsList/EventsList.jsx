@@ -58,8 +58,8 @@ class EventsList extends React.Component {
     return (
       <div className="col-sm-6" key={index}>
         <div className="panel panel-success">
-          <div className="panel-heading">
-            <h2 className="panel-title">{ event.name } [<Link to={`/event/${ event.id}` }>See details</Link>]</h2>
+          <div className="panel-heading clearfix">
+            <h2 className="panel-title">{ event.name } <Link to={`/event/${ event.id}` } className="btn btn-default pull-right">See details</Link></h2>
           </div>
           <div className="panel-body clearfix">
             <ul>
