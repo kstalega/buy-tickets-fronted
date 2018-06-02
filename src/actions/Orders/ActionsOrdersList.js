@@ -6,14 +6,14 @@ function ActionsOrdersFetchAllRequestSuccess(dispatch, response) {
     dispatch({
       type: ORDERS.FETCH.SUCCESS,
       payload: {
-        message: response.errorContainer.message,
+        response,
       },
     });
   } else {
     dispatch({
       type: ORDERS.FETCH.ERROR,
       payload: {
-        message: response.errorContainer.message,
+        response,
       },
     });
   }

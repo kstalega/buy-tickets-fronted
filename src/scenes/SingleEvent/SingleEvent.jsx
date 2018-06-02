@@ -10,7 +10,6 @@ class SingleEvent extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="col-sm-12">
         <div className="panel panel-default">
