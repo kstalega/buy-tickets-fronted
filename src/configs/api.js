@@ -20,7 +20,7 @@ const apiEndpoints = {
       method: 'delete',
       endPoint: '/events/',
     },
-    fetchSingle: {
+    getTicketsForEvent: {
       method: 'get',
       endPoint: '/tickets/event/',
       authenticationNeeded: true,

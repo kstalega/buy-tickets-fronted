@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ActionEventsFetchSingle } from '../../actions';
+import { ActionEventsGetTicketsForEvent } from '../../actions';
 
 class SingleEvent extends React.Component {
   componentDidMount() {
-    this.props.ActionEventsFetchSingle( this.props.match.params.eventID );
+    this.props.ActionEventsGetTicketsForEvent( this.props.match.params.eventID );
   }
 
   render() {
@@ -17,4 +17,4 @@ class SingleEvent extends React.Component {
   }
 }
 
-export default connect(null, { ActionEventsFetchSingle })(SingleEvent);
+export default connect(null, { ActionEventsGetTicketsForEvent })(SingleEvent);

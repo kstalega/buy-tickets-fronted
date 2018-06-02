@@ -4,7 +4,7 @@ import { eventAPI } from '../../api/Event';
 /**
  * Action Events Fetch Single by ID
  */
-const EventFetchSingleRequestSuccess = (dispatch, response) => {
+const getTicketsForEventRequestSuccess = (dispatch, response) => {
   if (response.success) {
     dispatch({
       type: EVENT.FETCH_SINGLE.SUCCESS,
@@ -22,19 +22,19 @@ const EventFetchSingleRequestSuccess = (dispatch, response) => {
   }
 };
 
-const EventFetchSingleRequestFailure = (dispatch) => {
+const getTicketsForEventRequestFailure = (dispatch) => {
   dispatch({
     type: EVENT.FETCH_SINGLE.REQUEST_FAILURE,
   });
 };
 
-export const ActionEventsFetchSingle = (EventID) => {
+export const ActionEventsGetTicketsForEvent = (EventID) => {
   return (dispatch) => {
     dispatch({ type: EVENT.FETCH_SINGLE.TRY });
-    eventAPI.fetchSingle(
+    eventAPI.getTicketsForEvent(
       EventID,
-      (response) => { EventFetchSingleRequestSuccess(dispatch, response); },
-      () => { EventFetchSingleRequestFailure(dispatch); },
+      (response) => { getTicketsForEventRequestSuccess(dispatch, response); },
+      () => { getTicketsForEventRequestFailure(dispatch); },
     )
   };
 };

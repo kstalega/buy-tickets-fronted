@@ -30,10 +30,10 @@ export const eventAPI = {
     });
   },
 
-  fetchSingle: function fetchSingle(eventID, onSuccess, onError) {
-    const apiEndpoint = APIsConfig.events.url + APIsConfig.events.fetchSingle.endPoint + eventID;
-    const apiMethod = APIsConfig.events.fetchSingle.method;
-    const authenticationNeeded = APIsConfig.events.fetchSingle.authenticationNeeded;
+  getTicketsForEvent: function getTicketsForEvent(eventID, onSuccess, onError) {
+    const apiEndpoint = APIsConfig.events.url + APIsConfig.events.getTicketsForEvent.endPoint + eventID;
+    const apiMethod = APIsConfig.events.getTicketsForEvent.method;
+    const authenticationNeeded = APIsConfig.events.getTicketsForEvent.authenticationNeeded;
 
     commonAPI.ajax(
       apiEndpoint,
