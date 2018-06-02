@@ -9,6 +9,7 @@ import EventsList from '../../scenes/EventsList/EventsList';
 import CreateEvent from '../../scenes/CreateEvent/CreateEvent';
 import ShowOrders from '../../scenes/ShowOrders/ShowOrders';
 import ShowUserOrders from '../../scenes/ShowUserOrders/ShowUserOrders';
+import SingleEvent from '../../scenes/SingleEvent/SingleEvent';
 
 const ScenesContainer = () =>
   (
@@ -23,6 +24,7 @@ const ScenesContainer = () =>
       <Route path="/events/create" component={CreateEvent} />
       <Route path="/orders/all" component={ShowOrders} />
       <Route path="/orders/my" component={ShowUserOrders} />
+      <Route path="/event/:eventID" component={SingleEvent} />
     </div>
   );
 
