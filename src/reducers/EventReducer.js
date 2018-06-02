@@ -1,10 +1,13 @@
 import { EVENT } from '../actions/types';
-import { EventsCreateReducer } from './Events';
+import { EventsCreateReducer, EventsGetTicketsForEventReducer } from './Events';
 
 const INITIAL_STATE = {
   create: {
     message: '',
     formInProgress: false,
+  },
+  singleEvent: {
+    ticketList: [],
   },
 };
 
@@ -26,7 +29,12 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         create: EventsCreateReducer(state.create, action),
-      }
+      };
+    case checkType(action.type, EVENT.FETCH_TICKETS_FOR_EVENT):
+      return {
+        ...state,
+        singleEvent: EventsGetTicketsForEventReducer(state.singleEvent, action),
+      };
     default:
       return state;
   }

@@ -17,4 +17,14 @@ class SingleEvent extends React.Component {
   }
 }
 
-export default connect(null, { ActionEventsGetTicketsForEvent })(SingleEvent);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { ActionEventsGetTicketsForEvent },
+)(SingleEvent);
