@@ -2,8 +2,9 @@ import React from 'react';
 
 class Ticket extends React.Component {
   render() {
+    const { id, status, type } = this.props.ticket;
     return (
-      <div>Ticket ID: {this.props.ticket.id}, Status: {this.props.ticket.status}</div>
+      <div>Ticket ID: {id}, Status: {status}, type: {type}</div>
     );
   }
 };
