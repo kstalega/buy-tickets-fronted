@@ -39,4 +39,10 @@ export const ORDERS = {
     SUCCESS: 'orders_fetch_by_user_id_success',
     ERROR: 'orders_fetch_by_user_id_error',
   },
+  BUY_TICKET: {
+    TRY: 'orders_buy_ticket_try',
+    SUCCESS: 'orders_buy_ticket_success',
+    FAILURE: 'orders_buy_ticket_failure',
+    REQUEST_FAILURE: 'orders_buy_ticket_request_failure',
+  },
 };

@@ -38,6 +38,7 @@ export const eventAPI = {
     commonAPI.ajax(
       apiEndpoint,
       apiMethod,
+      {},
       authenticationNeeded,
       onSuccess,
       onError,

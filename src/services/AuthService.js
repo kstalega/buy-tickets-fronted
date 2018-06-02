@@ -57,6 +57,11 @@ export function getUserInfo() {
   return decodedIdToken;
 }
 
+export function getUserID() {
+  const user = getUserInfo();
+  return user.userId;
+}
+
 export function getAuthHeader() {
   return {
     Authorization: `Bearer ${getIdToken()}`,

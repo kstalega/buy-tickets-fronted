@@ -38,6 +38,11 @@ const apiEndpoints = {
       endPoint: '/user/',
       authenticationNeeded: true,
     },
+    buyTicket: {
+      method: 'post',
+      endPoint: '/new_order',
+      authenticationNeeded: true,
+    }
   },
 };
 

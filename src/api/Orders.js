@@ -10,6 +10,7 @@ export const ordersAPI = {
     commonAPI.ajax(
       apiEndpoint,
       apiMethod,
+      {},
       authenticationNeeded,
       onSuccess,
       onError,
@@ -23,6 +24,27 @@ export const ordersAPI = {
     commonAPI.ajax(
       apiEndpoint,
       apiMethod,
+      {},
+      authenticationNeeded,
+      onSuccess,
+      onError,
+    );
+  },
+
+  buyTicket: function buyTicket(userID, ticketID, eventID, onSuccess, onError) {
+    const apiEndpoint = APIsConfig.orders.url + APIsConfig.orders.buyTicket.endPoint
+    const apiMethod = APIsConfig.orders.buyTicket.method;
+    const authenticationNeeded =  APIsConfig.orders.buyTicket.authenticationNeeded;
+    const data = {
+      userID,
+      'bookings[0].ticketID': ticketID,
+      'bookings[0].eventID': eventID,
+    };
+
+    commonAPI.ajax(
+      apiEndpoint,
+      apiMethod,
+      data,
       authenticationNeeded,
       onSuccess,
       onError,

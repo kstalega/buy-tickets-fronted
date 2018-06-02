@@ -1,18 +1,16 @@
 import React from 'react';
-import { Ticket } from '../';
+import Ticket from '../Ticket/Ticket';
 
 class TicketsList extends React.Component {
   render() {
-    console.log(this.props.tickets);
     return (
       <div>
-        <div>List of tickets</div>
+        <h4>List of tickets</h4>
         {
           this.props.tickets.map((ticket) => {
             return (<Ticket ticket={ticket} key={ticket.id} />);
           })
         }
-
       </div>
     );
   }
