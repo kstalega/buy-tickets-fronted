@@ -1,11 +1,24 @@
 import React from 'react';
-import { isLoggedIn, hasUserEnoughPermissionLevel } from '../services/AuthService';
+import { connect } from 'react-redux';
+import { hasUserEnoughPermissionLevel } from '../services/AuthService';
 
 const PrivateElement = (props) => {
-  if (isLoggedIn() && hasUserEnoughPermissionLevel(props.neededpermission)) {
+  const { neededpermission: neededPermission = 0 } = props; 
+  if (props.logged && hasUserEnoughPermissionLevel(neededPermission)) {
     return props.children;
   }
   return (null);
 };
 
-export default PrivateElement;
+const mapStateToProps = (state) => {
+  const { logged } = state.auth;
+
+  return {
+    logged,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {},
+)(PrivateElement);
