@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PrivateElement from '../../components/PrivateElement';
 
 const Home = () =>
   (
@@ -14,6 +15,9 @@ const Home = () =>
       <div className="col-sm-12">
         <div className="jumbotron text-center">
           <h2>Unforgettable Events</h2>
+          <PrivateElement>
+            <div>Discount for signed user! <br /><br /></div>
+          </PrivateElement>
           <Link className="btn btn-lg btn-success" to="/events/show">Check them out!</Link>
         </div>
       </div>

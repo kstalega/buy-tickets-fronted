@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import APIsConfig from '../../configs/api';
 import { EventActionDeleteTry } from '../../actions';
 import { getAuthHeader } from '../../services/AuthService';
+import PrivateElement from '../../components/PrivateElement';
 
 class EventsList extends React.Component {
   constructor(props) {
@@ -71,13 +72,15 @@ class EventsList extends React.Component {
               <li>Premium tickets number: { event.premiumTicketsNumber }</li>
               <li>Status: { event.status }</li>
             </ul>
-            <button
-              type="button"
-              className="btn btn-danger pull-right"
-              onClick={() => this.props.EventActionDeleteTry(event.id)}
-            >
-            Cancel
-            </button>
+            <PrivateElement neededpermission="1">
+              <button
+                type="button"
+                className="btn btn-danger pull-right"
+                onClick={() => this.props.EventActionDeleteTry(event.id)}
+              >
+              Cancel
+              </button>
+            </PrivateElement>
           </div>
         </div>
       </div>
