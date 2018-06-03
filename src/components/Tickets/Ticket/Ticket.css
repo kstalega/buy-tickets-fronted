@@ -1,8 +1,38 @@
-.ticket {
-  padding: 5px;
-  background-color: #f46841;
+.ticket-container {
+  width: 16.66%;
+  padding: 7.5px;
+  display: flex;
+  align-items: stretch;
+}
+.ticket-container .ticket {
+  padding: 7.5px;
+  background-color: #ffd1d1;
+  border-radius: 5px;
+  width: 100%;
+  transition: all 0.5s ease;
 }
 
-.ticket.available {
-  background-color: #9ef442;
+.ticket-container .ticket:hover {
+  background-color: #e7acac;
+}
+
+.ticket-container.available .ticket {
+  background-color: #c0e68a;
+}
+.ticket-container.available .ticket:hover {
+  background-color: #a2c66e;
+}
+
+.ticket-container .id {
+  font-weight: bold;
+  padding-left: 3px;
+}
+
+.ticket-container .btn {
+  margin-top: 15px;
+}
+
+.ticket-container .label-warning {
+  background-color: #E1BE00;
+  color: #000000b3;
 }

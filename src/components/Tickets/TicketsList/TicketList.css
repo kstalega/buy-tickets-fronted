@@ -1,0 +1,10 @@
+ul.ticket-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items:strech;
+  margin-left: -7.5px;
+  margin-right: -7.5px;
+}
