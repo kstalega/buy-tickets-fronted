@@ -23,9 +23,9 @@ const ScenesContainer = () =>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/restricted" component={Restricted} />
-      <PrivateRoute path="/events/show" component={EventsList} />
-      <Route path="/events/create" component={CreateEvent} />
-      <Route path="/orders/all" component={ShowOrders} />
+      <PrivateRoute path="/events/show" component={EventsList} neededpermission="0" />
+      <PrivateRoute path="/events/create" component={CreateEvent} neededpermission="1" />
+      <PrivateRoute path="/orders/all" component={ShowOrders} neededpermission="1" />
       <Route path="/orders/my" component={ShowUserOrders} />
       <Route path="/event/:eventID" component={SingleEvent} />
     </div>

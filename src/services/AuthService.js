@@ -10,12 +10,6 @@ export function logout() {
   clearIdToken();
 }
 
-export function requireAuth(nextState, replace) {
-  if (!isLoggedIn()) {
-
-  }
-}
-
 export function getIdToken() {
   return localStorage.getItem(ID_TOKEN_KEY);
 }
@@ -66,4 +60,13 @@ export function getAuthHeader() {
   return {
     Authorization: `Bearer ${getIdToken()}`,
   };
+}
+
+export function getPermissionLevel() {
+  const user = getUserInfo();
+  return user.permissionId;
+}
+
+export function hasUserEnoughPermissionLevel(neededPermission) {
+  return getPermissionLevel() >= neededPermission;
 }
