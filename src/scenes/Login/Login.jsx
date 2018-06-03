@@ -58,36 +58,40 @@ class Login extends React.Component {
 
   render() {
     return !this.state.logged ? (
-      <div className="container">
-        <h1>Login</h1>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Login"
-            name="login"
-            onChange={this.handleInputChange}
-            value={this.state.login}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            name="password"
-            onChange={this.handleInputChange}
-            value={this.state.password}
-          />
-        </div>
-        <div className="form-group">
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={this.tryToLogin}
-          >
-            Sign In
-          </button>
+      <div className="col-sm-12">
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <h1>Login</h1>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Login"
+                name="login"
+                onChange={this.handleInputChange}
+                value={this.state.login}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                name="password"
+                onChange={this.handleInputChange}
+                value={this.state.password}
+              />
+            </div>
+            <div className="form-group">
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={this.tryToLogin}
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     ) : (<Redirect to={{ pathname: '/' }} />);
