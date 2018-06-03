@@ -32,7 +32,7 @@ const ScenesContainer = () =>
       <div class="col-sm-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            System version: 0.7
+            System version: 0.71
           </div>
         </div>
       </div>
