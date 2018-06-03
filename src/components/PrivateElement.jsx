@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { hasUserEnoughPermissionLevel } from '../services/AuthService';
 
 const PrivateElement = (props) => {
-  const { neededpermission: neededPermission = 0 } = props; 
+  const { neededpermission: neededPermission = 0 } = props;
   if (props.logged && hasUserEnoughPermissionLevel(neededPermission)) {
     return props.children;
   }

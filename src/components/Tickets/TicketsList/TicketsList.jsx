@@ -6,11 +6,13 @@ class TicketsList extends React.Component {
     return (
       <div>
         <h4>List of tickets</h4>
+        <ul className="list-group">
         {
           this.props.tickets.map((ticket) => {
             return (<Ticket ticket={ticket} key={ticket.id} />);
           })
         }
+        </ul>
       </div>
     );
   }

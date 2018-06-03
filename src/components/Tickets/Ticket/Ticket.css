@@ -1,0 +1,8 @@
+.ticket {
+  padding: 5px;
+  background-color: #f46841;
+}
+
+.ticket.available {
+  background-color: #9ef442;
+}
