@@ -28,6 +28,14 @@ const ScenesContainer = () =>
       <PrivateRoute path="/orders/all" component={ShowOrders} neededpermission="1" />
       <PrivateRoute path="/orders/my" component={ShowUserOrders} neededpermission="0" />
       <PrivateRoute path="/event/:eventID" component={SingleEvent} neededpermission="0" />
+    
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            System version: 0.7
+          </div>
+        </div>
+      </div>
     </div>
   );
 
