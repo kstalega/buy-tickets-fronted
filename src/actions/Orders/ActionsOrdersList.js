@@ -33,14 +33,14 @@ function ActionsOrdersFetchByUserIDRequestSuccess(dispatch, response) {
     dispatch({
       type: ORDERS.FETCH_BY_USER_ID.SUCCESS,
       payload: {
-        message: response.errorContainer.message,
+        response,
       },
     });
   } else {
     dispatch({
       type: ORDERS.FETCH_BY_USER_ID,
       payload: {
-        message: response.errorContainer.message,
+        response,
       },
     });
   }

@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { ActionsOrdersFetchByUserID } from '../../actions';
 import { getUserID } from '../../services/AuthService';
 
+function renderSingleOrder(order) {
+  return (
+    <li className="list-group-item">
+      ID: { order.orderID }, Tickets number: { order.bookings.length}, User ID: { order.userID }
+    </li>
+  );
+}
+
 class ShowOrders extends React.Component {
   componentDidMount() {
     this.props.ActionsOrdersFetchByUserID(getUserID());
@@ -10,9 +18,29 @@ class ShowOrders extends React.Component {
 
   render() {
     return (
-      <div>Test by user ID</div>
+      <div className="col-sm-12">
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <h2>Your order</h2>
+            <ul className="list-group">
+              {
+                this.props.user_orders.map((order) => renderSingleOrder(order))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
-export default connect(null, { ActionsOrdersFetchByUserID })(ShowOrders);
+const mapStateToProps = (state) => {
+  return {
+    user_orders: state.orders.user_orders,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { ActionsOrdersFetchByUserID },
+)(ShowOrders);
