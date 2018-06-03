@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './MainMenu.css';
 import { tryToLogoutUser, getUserInfoByID } from '../../actions';
 import { getUserInfo } from '../../services/AuthService';
+import PrivateElement from '../PrivateElement';
 
 function userInfo() {
   const user = getUserInfo();
@@ -55,18 +56,26 @@ class MainMenu extends React.Component {
             <li>
               <Link to="/">Start</Link>
             </li>
-            <li>
-              <Link to="/events/show">Events</Link>
-            </li>
-            <li>
-              <Link to="/events/create">Add event</Link>
-            </li>
-            <li>
-              <Link to="/orders/all">All orders</Link>
-            </li>
-            <li>
-              <Link to="/orders/my">My orders</Link>
-            </li>
+            <PrivateElement neededpermission="0">
+              <li>
+                <Link to="/events/show">Events</Link>
+              </li>
+            </PrivateElement>
+            <PrivateElement neededpermission="1">
+              <li>
+                <Link to="/events/create">Add event</Link>
+              </li>
+            </PrivateElement>
+            <PrivateElement neededpermission="1">
+              <li>
+                <Link to="/orders/all">All orders</Link>
+              </li>
+            </PrivateElement>
+            <PrivateElement neededpermission="0">
+              <li>
+                <Link to="/orders/my">My orders</Link>
+              </li>
+            </PrivateElement>
           </ul>
           { this.renderUserArea() }
         </nav>
