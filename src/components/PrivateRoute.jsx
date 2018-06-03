@@ -3,6 +3,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { isLoggedIn, hasUserEnoughPermissionLevel } from '../services/AuthService';
 
 function RedirectToLogin(props) {
@@ -28,18 +29,41 @@ function notEnoughPermissionLevel() {
   );
 }
 
-const PrivateRoute = ({ component: Component, neededpermission: neededPermission = 0, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) => {
-      if (isLoggedIn() && hasUserEnoughPermissionLevel(neededPermission)) {
-        return (<Component {...props} />);
-      } else if (isLoggedIn()) {
-        return notEnoughPermissionLevel();
-      }    
-      return RedirectToLogin(props);
-    }}
-  />
-);
+class PrivateRoute extends React.Component {
+  render() {
+    const { 
+      component: Component, 
+      neededpermission: neededPermission = 0,
+      logged,
+      ...rest 
+    } = this.props;
 
-export default PrivateRoute;
+    return (
+      <Route
+        {...rest}
+        render={(props) => {
+          if (logged && hasUserEnoughPermissionLevel(neededPermission)) {
+            return (<Component {...props} />);
+          } else if (isLoggedIn()) {
+            return notEnoughPermissionLevel();
+          }    
+          return RedirectToLogin(props);
+        }}
+      />
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  const { logged } = state.auth;
+
+  return {
+    logged,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {},
+)
+(PrivateRoute);
