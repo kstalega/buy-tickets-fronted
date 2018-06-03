@@ -14,6 +14,8 @@ class Login extends React.Component {
       login: 'roblew@op.pl',
       password: 'HASLO1',
       logged: false,
+      loginInProgess: false,
+      message: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,6 +32,7 @@ class Login extends React.Component {
   }
 
   successfulLogin(response) {
+    // login was sucessfull
     if (response.Success) {
       const idToken = response.Result;
       setIdToken(idToken);
@@ -38,13 +41,25 @@ class Login extends React.Component {
         login: '',
         password: '',
         logged: true,
+        loginInProgess: true,
       });
 
       this.props.userLogged();
+    // something went wrong, authorization server returned info about it
+    } else {
+      this.setState({
+        loginInProgess: false,
+        message: `${response.MessageContainer.Message}: ${response.MessageContainer.Details}`,
+      });
     }
   }
 
   tryToLogin() {
+    this.setState({
+      loginInProgess: true,
+      message: '',
+    });
+
     jQuery.ajax({
       type: 'POST',
       url: `http://usersmicroservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
@@ -56,12 +71,40 @@ class Login extends React.Component {
     });
   }
 
+  button() {
+    if (this.state.loginInProgess) {
+      return (<div>In progress, please wait...</div>)
+    }
+
+    return (
+      <button
+        type="button"
+        className="btn btn-success"
+        onClick={this.tryToLogin}
+      >
+        Sign In
+      </button>
+    );
+  };
+
+  renderMessages() {
+    if (this.state.message !== '') {
+      return (
+        <div class="alert alert-danger" role="alert">
+          {this.state.message}
+        </div>
+      );
+    }
+    return null;
+  }
+
   render() {
     return !this.state.logged ? (
       <div className="col-sm-12">
         <div className="panel panel-default">
           <div className="panel-body">
             <h1>Login</h1>
+            {this.renderMessages()}
             <div className="form-group">
               <input
                 type="text"
@@ -83,13 +126,7 @@ class Login extends React.Component {
               />
             </div>
             <div className="form-group">
-              <button
-                type="button"
-                className="btn btn-success"
-                onClick={this.tryToLogin}
-              >
-                Sign In
-              </button>
+              {this.button()}
             </div>
           </div>
         </div>
