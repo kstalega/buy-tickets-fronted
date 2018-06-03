@@ -30,7 +30,7 @@ export function setIdToken(token) {
 
 export function isLoggedIn() {
   const idToken = getIdToken();
-  return !!idToken;
+  return !!idToken && !isTokenExpired(idToken);
 }
 
 function getTokenExpirationDate(encodedToken) {
