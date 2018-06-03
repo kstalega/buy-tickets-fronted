@@ -1,5 +1,8 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { 
+  Route 
+} from 'react-router-dom';
+import PrivateRoute from '../PrivateRoute';
 import MainMenu from '../MainMenu/MainMenu';
 import Home from '../../scenes/Home/Home';
 import Login from '../../scenes/Login/Login';
@@ -20,7 +23,7 @@ const ScenesContainer = () =>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/restricted" component={Restricted} />
-      <Route path="/events/show" component={EventsList} />
+      <PrivateRoute path="/events/show" component={EventsList} />
       <Route path="/events/create" component={CreateEvent} />
       <Route path="/orders/all" component={ShowOrders} />
       <Route path="/orders/my" component={ShowUserOrders} />
