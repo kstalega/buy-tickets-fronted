@@ -14,7 +14,7 @@ class SingleEvent extends React.Component {
       <div className="col-sm-12">
         <div className="panel panel-default">
           <div className="panel-body">
-           <Link to="/events/show" className="btn btn-default">Return to list of all events</Link>
+            <Link to="/events/show" className="btn btn-default">Return to list of all events</Link>
             <h2>Single event view {this.props.match.params.eventID || 'No ID' }</h2>
 
             <TicketsList tickets={this.props.ticketList} />
