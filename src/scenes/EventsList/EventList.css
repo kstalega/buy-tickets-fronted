@@ -1,0 +1,41 @@
+.event .panel-success > .panel-heading {
+  background-color: #c0e68a;
+  border: 0;
+}
+.event .panel-success {
+  border-color: #c0e68a;
+}
+.event .panel-heading h2 {
+  font-weight: bold;
+  color: rgba(0,0,0,.8);
+  font-size: 20px;
+  padding: 6px 0;
+}
+
+/* Cancelled event */
+.event .panel-success.cancelled > .panel-heading {
+  background-color: #e6e6e6;
+}
+.event .panel-succes.cancelled {
+  border-color: #e6e6e6 !important;
+}
+
+.eventlist {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: strech;
+  margin-left: -7.5px;
+  margin-right: -7.5px;
+}
+.event {
+  width: 50%;
+  padding: 7.5px;
+  display: flex;
+  align-items: stretch;
+}
+
+.event .panel {
+  width: 100%;
+}

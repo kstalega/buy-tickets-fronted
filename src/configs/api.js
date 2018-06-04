@@ -24,6 +24,7 @@ const apiEndpoints = {
     deleteEvent: {
       method: 'delete',
       endPoint: '/events/',
+      authenticationNeeded: true,
     },
     getTicketsForEvent: {
       method: 'get',

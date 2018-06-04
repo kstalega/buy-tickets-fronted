@@ -6,6 +6,7 @@ import APIsConfig from '../../configs/api';
 import { EventActionDeleteTry } from '../../actions';
 import { getAuthHeader } from '../../services/AuthService';
 import PrivateElement from '../../components/PrivateElement';
+import './EventList.css';
 
 class EventsList extends React.Component {
   constructor(props) {
@@ -55,12 +56,35 @@ class EventsList extends React.Component {
     });
   }
 
+  renderIf(event, element, cancelled = true) {
+    if (cancelled) {
+      if (event.status.toLowerCase() === 'canceled') {
+        return element;
+      }
+    } else {
+      if (event.status.toLowerCase() !== 'canceled') {
+        return element;
+      }
+    }
+    return null;
+  }
+
+  renderChooseSeats(event) {
+    if (event.status.toLowerCase() !== 'canceled') {
+      return (
+        <Link to={`/event/${ event.id}` } className="btn btn-default pull-right">Choose Seats</Link>
+      )
+    }
+    return null;
+  }
+
   renderEvent(event, index) {
     return (
-      <div className="col-sm-6" key={index}>
-        <div className="panel panel-success">
+      <div className="event" key={index}>
+        <div className={'panel panel-success ' + this.renderIf(event, 'cancelled')}>
           <div className="panel-heading clearfix">
-            <h2 className="panel-title">{ event.name } <Link to={`/event/${ event.id}` } className="btn btn-default pull-right">See details</Link></h2>
+            <h2 className="panel-title pull-left">{event.name}</h2>
+            {this.renderChooseSeats(event)}
           </div>
           <div className="panel-body clearfix">
             <ul>
@@ -72,15 +96,22 @@ class EventsList extends React.Component {
               <li>Premium tickets number: { event.premiumTicketsNumber }</li>
               <li>Status: { event.status }</li>
             </ul>
-            <PrivateElement neededpermission="1">
-              <button
-                type="button"
-                className="btn btn-danger pull-right"
-                onClick={() => this.props.EventActionDeleteTry(event.id)}
-              >
-              Cancel
-              </button>
-            </PrivateElement>
+
+            {this.renderIf(event,
+              <PrivateElement neededpermission="1">
+                <button
+                  type="button"
+                  className="btn btn-danger pull-right"
+                  onClick={() => {
+                    this.props.EventActionDeleteTry(event.id, this.tryToGetEvents.bind(this));
+                  }}
+                >
+                Cancel
+                </button>
+              </PrivateElement>,
+              false,
+            )}
+
           </div>
         </div>
       </div>
@@ -91,9 +122,11 @@ class EventsList extends React.Component {
     const { events } = this.state;
 
     return (
-      <div>
-        {events.map((event, index) =>
-          this.renderEvent(event, index))}
+      <div className="col-sm-12">
+        <div className="eventlist">
+          {events.map((event, index) =>
+            this.renderEvent(event, index))}
+        </div>
       </div>
     );
   }
