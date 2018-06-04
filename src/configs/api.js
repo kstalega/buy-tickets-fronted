@@ -1,6 +1,6 @@
 const apiEndpoints = {
   user: {
-    url: 'http://usersmicroservice.azurewebsites.net',
+    url: 'http://gateway20180604014740.azurewebsites.net',
     signUp: {
       method: 'post',
       endPoint: '/api/Users',
@@ -11,7 +11,7 @@ const apiEndpoints = {
     }
   },
   events: {
-    url: 'http://et-microservice.westeurope.cloudapp.azure.com:8181',
+    url: 'http://gateway20180604014740.azurewebsites.net',
     getEvents: {
       method: 'get',
       endPoint: '/events/show',
@@ -33,7 +33,7 @@ const apiEndpoints = {
     },
   },
   orders: {
-    url: 'http://rso-mf.westeurope.cloudapp.azure.com:8181/orders',
+    url: 'http://gateway20180604014740.azurewebsites.net/orders',
     fetchAllOrders: {
       method: 'get',
       endPoint: '/all_orders',
