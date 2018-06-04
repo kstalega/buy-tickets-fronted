@@ -6,28 +6,31 @@ export const eventAPI = {
   add: function add(eventData, onSuccess, onError) {
     const apiEndpoint = APIsConfig.events.url + APIsConfig.events.addEvent.endPoint;
     const apiMethod = APIsConfig.events.addEvent.method;
+    const authenticationNeeded = APIsConfig.events.addEvent.authenticationNeeded;
 
-    jQuery.ajax({
-      type: apiMethod,
-      url: apiEndpoint,
-      data: eventData,
-      dataType: 'json',
-      success: onSuccess,
-      error: onError,
-    });
+    commonAPI.ajax(
+      apiEndpoint,
+      apiMethod,
+      eventData,
+      authenticationNeeded,
+      onSuccess,
+      onError,
+    );
   },
 
   delete: function deleteEvent(eventID, onSuccess, onError) {
     const apiEndpoint = APIsConfig.events.url + APIsConfig.events.deleteEvent.endPoint + eventID;
     const apiMethod = APIsConfig.events.deleteEvent.method;
+    const authenticationNeeded = APIsConfig.events.deleteEvent.authenticationNeeded;
 
-    jQuery.ajax({
-      type: apiMethod,
-      url: apiEndpoint,
-      dataType: 'json',
-      success: onSuccess,
-      error: onError,
-    });
+    commonAPI.ajax(
+      apiEndpoint,
+      apiMethod,
+      {},
+      authenticationNeeded,
+      onSuccess,
+      onError,
+    );
   },
 
   getTicketsForEvent: function getTicketsForEvent(eventID, onSuccess, onError) {

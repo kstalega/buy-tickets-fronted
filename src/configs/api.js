@@ -19,6 +19,7 @@ const apiEndpoints = {
     addEvent: {
       method: 'post',
       endPoint: '/events/',
+      authenticationNeeded: true,
     },
     deleteEvent: {
       method: 'delete',

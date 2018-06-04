@@ -14,7 +14,7 @@ const EventCreateRequestFailure = (dispatch) => {
 };
 
 const EventCreateRequestSuccess = (dispatch, response) => {
-  if (response.Success) {
+  if (response.success) {
     dispatch({
       type: EVENT.CREATE.SUCCESS,
       payload: {
