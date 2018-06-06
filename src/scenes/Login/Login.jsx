@@ -62,7 +62,7 @@ class Login extends React.Component {
 
     jQuery.ajax({
       type: 'POST',
-      url: `http://usersmicroservice.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
+      url: `https://gateway20180604014740.azurewebsites.net/api/Authentication/${this.state.login}/${this.state.password}`,
       data: {
         login: 'test',
       },
